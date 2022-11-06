@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+    <bean id="myTeacher" class="com.example.demo.ioc.JavaStudent"/>
+
+    <bean id="myTeacherJs" class="com.example.demo.ioc.JSStudent" />
+
+    <!--    <bean id="myTeacherPh" class="peaksoft.di.PythonStudent" >-->
+    <!--        <constructor-arg name="name" value="Muhemmed"/>-->
+    <!--        <constructor-arg name="age" value="18"/>-->
+    <!--        <constructor-arg name="email" value="Muhammed@gmail.com"/>-->
+    <!--        <constructor-arg name="phoneNumber" value="+996202252525"/>-->
+    <!--        <constructor-arg  ref="myTeacher"/>-->
+    <!--    </bean>-->
+
+<!--    <bean id="myTeacherPh" class="com.example.demo.di.PythonStudent">-->
+
+<!--        <property name="name" value="Jumgalbek"/>-->
+<!--        <property name="age" value="22"/>-->
+<!--        <property name="email" value="Jumgalbek@gmail.com"/>-->
+<!--        <property name="phoneNumber" value="+996202252525"/>-->
+<!--        <property ref="myTeacher" name="teacher"/>-->
+<!--    </bean>-->
+    <bean id="myTeacherPh" class="com.example.demo.di.PythonStudent">
+
+        <property name="name" value="${pythonStudent.name}"/>
+        <property name="age" value="${pythonStudent.age}"/>
+        <property name="email" value="${pythonStudent.email}"/>
+        <property name="phoneNumber" value="${pythonStudent.phoneNumber}"/>
+        <property ref="myTeacher" name="teacher"/>
+    </bean>
+</beans>
